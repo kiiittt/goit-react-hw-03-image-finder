@@ -27,7 +27,7 @@ export class Searchbar extends Component  {
       <div className={css.Searchbar}>
         <form onSubmit={this.handleSubmit} className={css.SearchForm}>
           <button type="submit" className={css.SearchFormButton}>
-            <span className="button-label">Search</span>
+            <span className="button-label"></span>
           </button>
 
           <input
@@ -46,6 +46,6 @@ export class Searchbar extends Component  {
   }
 }
 
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
+// Searchbar.propTypes = {
+//   onSubmit: PropTypes.func.isRequired,
+// };
