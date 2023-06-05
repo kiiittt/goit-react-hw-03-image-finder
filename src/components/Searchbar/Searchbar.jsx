@@ -3,23 +3,22 @@ import css from '../styles.module.css';
 import { Component } from 'react';
 
 
-export class Searchbar extends Component  {
-    state = {
-        value: ' ',
-    }
-    
-      handleChange = event => {
-    this.setState({ query: event.currentTarget.value.toLowerCase() });
+export class Searchbar extends Component {
+  state = {
+    value: ' ',
+  };
+
+  handleChange = event => {
+    this.setState({ value: event.currentTarget.value.toLowerCase() });
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    if (this.state.query.trim() === '') {
-      return ('Please input tag for searching images');
-      ;
+    if (this.state.value.trim() === '') {
+      return 'Please input tag for searching images';
     }
-    this.props.onSubmit(this.state.query);
-    this.setState({ query: '' });
+    this.props.onSubmit(this.state.value);
+    this.setState({ value: '' });
   };
 
   render() {
@@ -31,12 +30,12 @@ export class Searchbar extends Component  {
           </button>
 
           <input
-            name="query"
+            name="value"
             type="text"
             autoComplete="off"
             autoFocus
             placeholder="Search images and photos"
-            value={this.state.query}
+            value={this.state.value}
             onChange={this.handleChange}
             className={css.SearchFormInput}
           />
