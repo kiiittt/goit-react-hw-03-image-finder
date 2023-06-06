@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchImages } from './ImageGallery/ImageGallery';
+import { fetchImages } from '../FindImage';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Button from './Button/Button';
@@ -111,21 +111,19 @@ class App extends Component {
       <>
         <ToastContainer />
         <Searchbar onSubmit={this.handleSearchSubmit} />
-        <App>
-          <ImageGallery
-            images={images}
-            onOpenModal={this.handleOpenModal}
-            ref={this.galleryRef}
+        <ImageGallery
+          images={images}
+          onOpenModal={this.handleOpenModal}
+          ref={this.galleryRef}
+        />
+        {isShowButton && <Button onClick={this.handleLoadMore} />}
+        {isLoading && <Loader />}
+        {selectedImage && (
+          <Modal
+            largeImageURL={selectedImage.largeImageURL}
+            onClose={this.handleCloseModal}
           />
-          {isShowButton && <Button onClick={this.handleLoadMore} />}
-          {isLoading && <Loader />}
-          {selectedImage && (
-            <Modal
-              largeImageURL={selectedImage.largeImageURL}
-              onClose={this.handleCloseModal}
-            />
-          )}
-        </App>
+        )}
       </>
     );
   }

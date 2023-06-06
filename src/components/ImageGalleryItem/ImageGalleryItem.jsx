@@ -7,14 +7,14 @@ const ImageGalleryItem = ({ image, onOpenModal }) => {
   };
 
   return (
-    <ImageGalleryItem>
+    <li>
       <img
         src={image.webformatURL}
         alt={image.alt}
         onClick={handleClick}
         className={css.ImageGalleryItemImage}
       />
-    </ImageGalleryItem>
+    </li>
   );
 };
 
