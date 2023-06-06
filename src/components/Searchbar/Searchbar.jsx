@@ -3,7 +3,7 @@ import css from '../styles.module.css';
 import { Component } from 'react';
 
 
-export class Searchbar extends Component {
+export default class Searchbar extends Component {
   state = {
     value: ' ',
   };
